@@ -1,0 +1,76 @@
+{
+  "emails": [
+    {
+      "id": "1",
+      "senderId": "1",
+      "text": "Hello, my name is <b>Stanislau</b>",
+      "date": "2024-03-20T15:16:18.071Z"
+    },
+    {
+      "id": "903",
+      "senderId": "2",
+      "text": "Hello world, <b>how are you?</b>",
+      "date": "2024-03-20T19:00:49.903Z"
+    },
+    {
+      "id": "221",
+      "senderId": "1",
+      "text": "dsadadasdsa",
+      "date": "2024-03-20T19:00:54.221Z"
+    },
+    {
+      "id": "846",
+      "senderId": "3",
+      "text": "bye",
+      "date": "2024-03-20T19:04:31.846Z"
+    },
+    {
+      "id": "23",
+      "senderId": "4",
+      "text": "Hello world, <b>how are you?</b>",
+      "date": "2024-03-20T19:07:53.023Z"
+    },
+    {
+      "id": "310",
+      "senderId": "4",
+      "text": "fdsf<b>dsfds</b>",
+      "date": "2024-03-21T09:47:04.310Z"
+    },
+    {
+      "id": "248",
+      "senderId": "1",
+      "text": "<u>Hello world</u>, <b>how are you?</b>",
+      "date": "2024-03-21T11:28:31.248Z"
+    },
+    {
+      "id": "59",
+      "senderId": "4",
+      "text": "hhhhhhhhhhhhhh",
+      "date": "2024-03-21T11:29:00.059Z"
+    },
+    {
+      "id": "249",
+      "senderId": "4",
+      "text": "<i>Hello <u>world, <b>how</u> are you?</b></i>",
+      "date": "2024-03-21T11:30:01.249Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Stanislau"
+    },
+    {
+      "id": "2",
+      "name": "Anastasiya"
+    },
+    {
+      "id": "3",
+      "name": "Alex"
+    },
+    {
+      "id": "4",
+      "name": "Dima"
+    }
+  ]
+}

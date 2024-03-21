@@ -1,0 +1,12 @@
+.email-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border: 1px solid black;
+  border-radius: 10px;
+
+  min-height: 400px;
+  padding: 10px;
+  width: 300px;
+}
