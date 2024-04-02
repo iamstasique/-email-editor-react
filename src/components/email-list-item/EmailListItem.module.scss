@@ -1,20 +1,26 @@
 .email-list-item {
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 10px;
   border-radius: 10px;
-  overflow: hidden;
   text-align: left;
+  
+  min-width: 40%;
   width: fit-content;
-
+  max-width: 80%;
+  
+  padding: 10px;
   margin-left: 0px;
 
+  position: relative;
+  
   .email-list-item-sender {
     font-weight: bold;
     color: rgb(0, 204, 255);
   }
 
   .email-list-item-date {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
     font-size: 8px;
-    text-align: right;
   }
 }
