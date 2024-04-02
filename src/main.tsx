@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { Home } from './Home.js';
-import { CustomQueryClientProvider } from './Provider.js';
+import { CustomQueryClientProvider } from './CustomQueryClientProvider.js';
 import './index.css';
 import { STORE } from './store/index.js';
 
