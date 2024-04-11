@@ -1,28 +1,20 @@
-import { useQuery } from '@tanstack/react-query';
 import { Bold, Eraser, Italic, Underline } from 'lucide-react';
 import { useRef, useState } from 'react';
-import { connect } from 'react-redux';
+import { useSendEmailMutation } from '../../apis/email.api';
 import { FormatType } from '../../enums/format-types.enum';
-import { QueryKeys } from '../../enums/query-keys.enum';
 import { applyFormat } from '../../helpers/email-format.helper';
 import { getRandomUser } from '../../helpers/random-user.helper';
-import { emailService } from '../../services/email.service';
-import { userService } from '../../services/user.service';
 import { Email } from '../../types/email.type';
 import { User } from '../../types/user.type';
 import styles from './EmailEditor.module.scss';
+import { useGetUsersQuery } from '../../apis/user.api';
 
-const mapDispatchToProps = () => ({
-  sendEmail: (email: Email) => emailService.sendEmail(email),
-});
 
 function EmailEditor() {
-  const { data: users } = useQuery({
-    queryKey: [QueryKeys.UserList],
-    queryFn: () => userService.getUsers(),
-  });
+  const {data: users} = useGetUsersQuery('');
+  const [sendEmail] = useSendEmailMutation();
 
-  const sendEmail = () => {
+  const submitEmail = () => {
     const randomUser: User | null = getRandomUser(users ?? []);
 
     const newEmail: Email = {
@@ -32,7 +24,7 @@ function EmailEditor() {
       date: new Date().toISOString(),
     };
 
-    emailService.sendEmail(newEmail).then(() => setText(''));
+    sendEmail(newEmail).then(() => setText(''));
   };
 
   const [text, setText] = useState<string>('Hello world, <b>how are you?</b>');
@@ -98,7 +90,7 @@ function EmailEditor() {
             </button>
           </div>
 
-          <button disabled={!text} onClick={() => sendEmail()}>
+          <button disabled={!text} onClick={() => submitEmail()}>
             Send now
           </button>
         </div>
@@ -107,4 +99,4 @@ function EmailEditor() {
   );
 }
 
-export default connect(mapDispatchToProps)(EmailEditor);
+export default EmailEditor;

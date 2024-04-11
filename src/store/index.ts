@@ -1,11 +1,15 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import logger from 'redux-logger';
-import { emailReducer } from './emails/emails.reducer';
-import { userReducer } from './users/users.reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { emailApi } from '../apis/email.api';
+import { userApi } from '../apis/user.api';
 
-const combinedReducers = combineReducers({
-  emailReducer,
-  userReducer,
+export const STORE = configureStore({
+  reducer: {
+    [emailApi.reducerPath]: emailApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([emailApi.middleware, userApi.middleware]),
 });
 
-export const STORE = createStore(combinedReducers, applyMiddleware(logger))
+setupListeners(STORE.dispatch);
