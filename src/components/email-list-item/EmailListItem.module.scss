@@ -5,16 +5,22 @@
   
   min-width: 40%;
   width: fit-content;
-  max-width: 80%;
+  max-width: 70%;
   
   padding: 10px;
-  margin-left: 0px;
+  margin: 8px;
 
   position: relative;
   
   .email-list-item-sender {
     font-weight: bold;
     color: rgb(0, 204, 255);
+    font-size: 14px;
+  }
+
+  .email-list-item-content {
+    color: white;
+    font-size: 16px;
   }
 
   .email-list-item-date {
@@ -22,5 +28,6 @@
     bottom: 5px;
     right: 10px;
     font-size: 8px;
+    color: white;
   }
 }
