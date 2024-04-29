@@ -8,10 +8,10 @@ import { Email } from '../../types/email.type';
 import { User } from '../../types/user.type';
 import styles from './EmailEditor.module.scss';
 import { useGetUsersQuery } from '../../apis/user.api';
-
+import Button from '@mui/material/Button';
 
 function EmailEditor() {
-  const {data: users} = useGetUsersQuery('');
+  const { data: users } = useGetUsersQuery('');
   const [sendEmail] = useSendEmailMutation();
 
   const submitEmail = () => {
@@ -76,23 +76,26 @@ function EmailEditor() {
 
         <div className={styles['card-actions']}>
           <div className={styles['card-actions-tools']}>
-            <button>
-              <Eraser onClick={() => setText('')} size={16} />
-            </button>
-            <button>
-              <Bold onClick={() => applySelectedFormat(FormatType.Bold)} size={16} />
-            </button>
-            <button>
-              <Italic onClick={() => applySelectedFormat(FormatType.Italic)} size={16} />
-            </button>
-            <button>
-              <Underline onClick={() => applySelectedFormat(FormatType.Underline)} size={16} />
-            </button>
+            <Button onClick={() => setText('')}>
+              <Eraser size={16} />
+            </Button>
+
+            <Button onClick={() => applySelectedFormat(FormatType.Bold)}>
+              <Bold size={16} />
+            </Button>
+
+            <Button onClick={() => applySelectedFormat(FormatType.Italic)}>
+              <Italic size={16} />
+            </Button>
+
+            <Button onClick={() => applySelectedFormat(FormatType.Underline)}>
+              <Underline size={16} />
+            </Button>
           </div>
 
-          <button disabled={!text} onClick={() => submitEmail()}>
+          <Button className={styles['card-actions-submit']} disabled={!text} onClick={() => submitEmail()}>
             Send now
-          </button>
+          </Button>
         </div>
       </div>
     </div>
